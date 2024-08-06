@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers\Api;
 
+use Exception;
 use App\Models\Event;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Http\Requests\EventRequest;
 use App\Http\Controllers\Controller;
-use Exception;
 
 class EventsController extends Controller
 {
@@ -16,7 +17,7 @@ class EventsController extends Controller
         return response()->json([
             'status' => true,
             'events' => $events,
-        ],200);
+        ], 200);
     }
 
     public function show(Event $event)
@@ -24,14 +25,14 @@ class EventsController extends Controller
         return response()->json([
             'status' => true,
             'event' => $event,
-        ],200);
+        ], 200);
     }
 
-    public function store(Request $request){
+    public function store(EventRequest $request)
+    {
         DB::beginTransaction();
-        try{
-
-           $event = Event::create([
+        try {
+            $event = Event::create([
                 'title' => $request->title,
                 'description' => $request->description,
                 'date' => $request->date,
@@ -43,23 +44,24 @@ class EventsController extends Controller
             return response()->json([
                 'status' => true,
                 'event' => $event,
-                'messsage' => "Usuário cadastrado com sucesso!",
-            ],201);
+                'message' => "Evento cadastrado com sucesso!",
+            ], 201);
 
-        }catch (Exception $e){
+        } catch (Exception $e) {
             DB::rollBack();
             return response()->json([
                 'status' => false,
-                'messsage' => "Usuário não cadastrado!",
-            ],400);
+                'message' => "Evento não cadastrado!",
+            ], 400);
         }
     }
 
-    public function update(Request $request, Event $event)
+
+    public function update(EventRequest $request, Event $event)
     {
 
         DB::beginTransaction();
-        try{
+        try {
 
             $event->update([
                 'title' => $request->title,
@@ -74,32 +76,33 @@ class EventsController extends Controller
                 'status' => true,
                 'event' => $event,
                 'messsage' => "Usuário editado com sucesso!",
-            ],200);
+            ], 200);
 
-        } catch (Exception $e){
+        } catch (Exception $e) {
             DB::rollBack();
             return response()->json([
                 'status' => false,
                 'messsage' => "Usuário não editado!",
-            ],400);
+            ], 400);
         }
     }
 
-    public function destroy(Event $event){
-        try{
+    public function destroy(Event $event)
+    {
+        try {
 
             $event->delete();
             return response()->json([
                 'status' => true,
                 'event' => $event,
                 'messsage' => "Usuário apagado com sucesso!",
-            ],200);
+            ], 200);
 
-        } catch (Exception $e){
+        } catch (Exception $e) {
             return response()->json([
                 'status' => false,
                 'messsage' => "Usuário não apagado!",
-            ],400);
+            ], 400);
         }
     }
 }
