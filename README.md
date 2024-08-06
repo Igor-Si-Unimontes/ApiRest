@@ -84,8 +84,10 @@ Método: GET
 URL: /events/{event}/download-pdf
 Descrição: Gera e baixa um PDF com os detalhes de um evento.\
 Exemplo de Requisição usando o software Insomnia: http://localhost/api/events/8/download-pdf
-Possíveis Erros
+```
+### Possíveis Erros
 Os possíveis erros foram tratados com a seguinte classe de requisição customizada:
+```sh
 use Illuminate\Contracts\Validation\Validator; 
 use Illuminate\Foundation\Http\FormRequest; 
 use Illuminate\Http\Exceptions\HttpResponseException;
