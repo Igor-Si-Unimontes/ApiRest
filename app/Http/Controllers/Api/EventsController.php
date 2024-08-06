@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use Exception;
 use App\Models\Event;
 use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Facades\DB;
 use App\Http\Requests\EventRequest;
 use App\Http\Controllers\Controller;
@@ -105,4 +106,12 @@ class EventsController extends Controller
             ], 400);
         }
     }
+
+    public function downloadPdf(Event $event)
+    {
+        $pdf = Pdf::loadView('events.pdf', compact('event'));
+
+        return $pdf->download('event.pdf');
+    }
+
 }
