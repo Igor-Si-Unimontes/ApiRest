@@ -11,26 +11,38 @@ http://localhost/
 
 - Versão estável do [Docker](https://docs.docker.com/engine/install/)
 - Versão compatível de [Docker Compose](https://docs.docker.com/compose/install/#install-compose)
+- PHP 8.1 ou superior
+- Composer
+- Laravel 11.x
 
 ## Como Deployar
 
 ### Primeira Vez
 
 ```sh
-- `git clone https://github.com/refactorian/laravel-docker.git`
-- `cd laravel-docker`
-- `docker compose up -d --build`
-- `docker compose exec phpmyadmin chmod 777 /sessions`
-- `docker compose exec php bash`
-- `chown -R www-data:www-data /var/www/storage /var/www/bootstrap/cache`
-- `chmod -R 775 /var/www/storage /var/www/bootstrap/cache`
-- `composer setup`
+- https://github.com/Igor-Si-Unimontes/ApiRest.git
+- cd laravel-docker
+- docker compose up -d --build
+- docker compose exec phpmyadmin chmod 777 /sessions
+- docker compose exec php bash
+- chown -R www-data:www-data /var/www/storage /var/www/bootstrap/cache
+- chmod -R 775 /var/www/storage /var/www/bootstrap/cache
+- composer setup
 ```
 
  ### A Partir da Segunda Vez
 ```sh
-- `docker compose up -d`
+- docker compose up -d
 ```
+## Autenticação
+
+**Instale o pacote JWTAuth:**
+```sh
+composer require tymon/jwt-auth
+php artisan vendor:publish --provider="Tymon\JWTAuth\Providers\LaravelServiceProvider"
+php artisan jwt:secret
+```
+
 ## Endpoints
 **Listar Eventos**
 ```sh
