@@ -2,8 +2,10 @@
 
 ## Video de Apresentação
 
-Clique aqui no icone para assistir ao video : [![YouTube](https://upload.wikimedia.org/wikipedia/commons/4/42/YouTube_icon_%282013-2017%29.png)](https://youtu.be/ZxDwG8cK6wk)
-
+Clique aqui no icone para assistir ao video : 
+<a href="https://youtu.be/ZxDwG8cK6wk">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/4/42/YouTube_icon_%282013-2017%29.png" alt="YouTube" style="width:30px;height:30px;">
+</a>
 
 ## Introdução
 
