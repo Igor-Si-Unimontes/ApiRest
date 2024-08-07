@@ -1,8 +1,13 @@
 # API de Gestão de Planos de Férias
 
+## Video de Apresentação
+
+Clique aqui no icone para assistir ao video : [![YouTube](https://upload.wikimedia.org/wikipedia/commons/4/42/YouTube_icon_%282013-2017%29.png)](https://youtu.be/ZxDwG8cK6wk)
+
+
 ## Introdução
 
-Esta API está sendo desenvolvida para um teste curto para o cargo de desenvolvedor junior Laravel. O propósito da API é permitir que os usuários executem operações CRUD (Criar, Ler, Atualizar, Excluir) em planos de férias. Além disso, a API inclui uma funcionalidade para gerar um documento PDF resumindo os detalhes de um plano de férias. O PDF deve incluir título, descrição, data, local e participantes (se disponível).
+Esta API está sendo desenvolvida para um teste curto para o cargo de desenvolvedor junior Laravel. O propósito da API é permitir que os usuários executem operações CRUD (Criar, Ler, Atualizar, Excluir) em planos de férias. Além disso, a API inclui uma funcionalidade para gerar um documento PDF resumindo os detalhes de um plano de férias.
 
 **Base URL:**  
 http://localhost/
